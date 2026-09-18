@@ -1,0 +1,8 @@
+res://Enemy.tscn
+res://Base.tscn
+res://enemy_spawner.gd
+res://enemy.gd
+res://player.gd
+res://Player.tscn
+res://GameUI.tscn
+res://ui.gd
