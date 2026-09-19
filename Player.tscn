@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://r13rodbeayhn"]
 
+[ext_resource type="Script" uid="uid://sysq8m4fpa1i" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://wbs2f7ydo4de" path="res://player.png" id="1_xhfnw"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yhkq0"]
+radius = 15.033297
+
+[sub_resource type="Curve" id="Curve_kpjcp"]
+_data = [Vector2(0, 1), 0.0, 0.10853929, 0, 0, Vector2(0.52795035, 0.30337083), -1.4800819, -1.4800819, 0, 0, Vector2(1, 0.022471905), -0.37824318, 0.0, 0, 0]
+point_count = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1071272582]
+physics_interpolation_mode = 1
+motion_mode = 1
+script = ExtResource("1_kpjcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1234890935]
-position = Vector2(0, -4)
+scale = Vector2(0.314, 0.314)
+texture = ExtResource("1_xhfnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2028145731]
 shape = SubResource("CircleShape2D_yhkq0")
+
+[node name="AimLine" type="Line2D" parent="." unique_id=931604505]
+width = 4.0
+width_curve = SubResource("Curve_kpjcp")
