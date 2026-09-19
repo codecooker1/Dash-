@@ -13,14 +13,10 @@ func _ready():
 	meter_bg.visible = false
 
 	if player:
-		player.score_updated.connect(_on_score_updated)
-		player.aim_meter_updated.connect(_on_meter_updated)
+		player.score_updated.connect(_on_player_score_updated)
+		player.aim_meter_updated.connect(_on_player_aim_meter_updated)
 
-
-func _on_score_updated(new_score):
-	score_label.text = "SCORE: " + str(new_score)
-
-func _on_meter_updated(ratio):
+func _on_player_aim_meter_updated(ratio:Variant) -> void:
 	if ratio > 0:
 		meter_bg.visible = true
 		meter_fill.size.x = original_meter_width * ratio
@@ -31,3 +27,7 @@ func _on_meter_updated(ratio):
 	else:
 		meter_bg.visible = false
 		meter_fill.size.x = 0
+
+
+func _on_player_score_updated(new_score: Variant) -> void:
+	score_label.text = "SCORE: " + str(new_score)

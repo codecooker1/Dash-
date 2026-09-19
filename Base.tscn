@@ -7,13 +7,18 @@
 
 [node name="Node2D" type="Node2D" unique_id=2000992828]
 
-[node name="Player" parent="." unique_id=1071272582 instance=ExtResource("1_nfj5t")]
+[node name="Player" parent="." unique_id=1071272582 groups=["player"] instance=ExtResource("1_nfj5t")]
 position = Vector2(525, 369)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2094122502]
-position = Vector2(584, 333)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2094122502]
+position = Vector2(59, -36)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.07
+drag_vertical_offset = 0.07
 
-[node name="Node2D" type="Node2D" parent="Camera2D" unique_id=502946458]
+[node name="Node2D" type="Node2D" parent="Player/Camera2D" unique_id=502946458]
 script = ExtResource("2_b56jl")
 enemy_scene = ExtResource("3_i812h")
 
@@ -40,3 +45,15 @@ offset_top = 19.0
 offset_right = 754.0
 offset_bottom = 52.0
 color = Color(0.8376483, 0.34595037, 0.6692122, 1)
+
+[node name="Debug" type="Label" parent="UI" unique_id=533274316]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -190.0
+offset_top = 36.0
+offset_right = -30.0
+offset_bottom = 77.0
+
+[connection signal="aim_meter_updated" from="Player" to="UI" method="_on_player_aim_meter_updated"]
+[connection signal="score_updated" from="Player" to="UI" method="_on_player_score_updated"]

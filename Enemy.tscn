@@ -19,3 +19,5 @@ shape = SubResource("CircleShape2D_fsqeb")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1856147750]
 rect = Rect2(-3, -3, 6, 6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
